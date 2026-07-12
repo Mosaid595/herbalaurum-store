@@ -1,0 +1,316 @@
+/* --- RESET & BASE STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F3ECE0; /* Rich luxury cream background */
+    color: #2F3E30; /* Organic charcoal-green for body text */
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #1A301B; /* Premium Dark Forest Green */
+}
+
+/* --- NAVIGATION BAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #1A301B; /* Solid rich green navbar */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.navbar .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #FAF7F2;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #E2DDD5;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #FAF7F2;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(26, 48, 27, 0.7), rgba(26, 48, 27, 0.5)), 
+                url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1470') no-repeat center center/cover;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #FAF7F2;
+}
+
+.hero-content p {
+    font-size: 19px;
+    color: #E2DDD5;
+    margin-bottom: 35px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* BUTTONS */
+.btn-primary {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: #D4AF37; /* Contrast Gold Color */
+    color: #1A301B;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #C5A028;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background-color: #1A301B; /* Solid green checkout buttons */
+    color: #FAF7F2;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #D4AF37;
+    color: #1A301B;
+}
+
+/* --- ABOUT SECTION --- */
+.about-section {
+    background-color: #E5DDD0; /* Slightly darker tone for layout depth */
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.organic-placeholder {
+    height: 380px;
+    background-color: #1A301B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D4AF37;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.about-text h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #3D4A3E;
+}
+
+/* --- PRODUCTS SECTION --- */
+.products-section {
+    background-color: #F3ECE0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 50px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    background-color: #EBE4D8; /* Creamy card texture */
+    border: 1px solid rgba(26, 48, 27, 0.1);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(26, 48, 27, 0.12);
+}
+
+.product-img-box {
+    height: 250px;
+    background-color: #1A301B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FAF7F2;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.product-info h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.size-tag {
+    font-size: 14px;
+    color: #5D6B5E;
+    margin-bottom: 12px;
+}
+
+.price {
+    margin-bottom: 20px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #8A9A8B;
+    margin-right: 12px;
+    font-size: 15px;
+}
+
+.new-price {
+    color: #B51A1A; /* Eye catching dynamic red for sale cuts */
+    font-weight: 700;
+    font-size: 20px;
+}
+
+/* --- REVIEWS SECTION --- */
+.reviews-section {
+    background-color: #E5DDD0;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.review-card {
+    background-color: #F3ECE0;
+    border-left: 4px solid #1A301B;
+    padding: 30px;
+    border-radius: 6px;
+}
+
+.stars {
+    color: #D4AF37;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.review-card p {
+    font-style: italic;
+    color: #2F3E30;
+    margin-bottom: 12px;
+}
+
+/* FORM STYLING */
+.review-form-container {
+    background-color: #F3ECE0;
+    border: 1px solid rgba(26, 48, 27, 0.15);
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 40px auto 0 auto;
+}
+
+.review-form-container h3 {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.review-form input, .review-form select, .review-form textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #BCAFA0;
+    background-color: #FAF7F2;
+    border-radius: 4px;
+    font-family: inherit;
+    outline: none;
+}
+
+.review-form input:focus, .review-form select:focus, .review-form textarea:focus {
+    border-color: #1A301B;
+    box-shadow: 0 0 5px rgba(26, 48, 27, 0.2);
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    .about-grid, .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}

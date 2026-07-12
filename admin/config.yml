@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: Mosaid595/herbalaurum-store
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Product Name", name: "title", widget: "string" }
+      - { label: "Price (PKR)", name: "price", widget: "number" }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Product Image", name: "image", widget: "image" }

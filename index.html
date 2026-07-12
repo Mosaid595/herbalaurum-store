@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbal Aurum | Premium Organic Hair Care</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="logo">Herbal Aurum</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="animate-hero">Natural Care for Your Beautiful Hair</h1>
+            <p class="animate-hero">Minimalist, plant-based formulas crafted to restore strength, shine, and natural growth.</p>
+            <a href="#products" class="btn-primary animate-hero">Shop Our Packs</a>
+        </div>
+    </section>
+
+    <!-- 3. ABOUT US SECTION -->
+    <section id="about" class="about-section">
+        <div class="container about-grid">
+            <div class="about-image reveal-left">
+                <div class="organic-placeholder">Pure Botanical Extracts</div>
+            </div>
+            <div class="about-text reveal-right">
+                <h2>Our Organic Philosophy</h2>
+                <p>StrandFlora is specially crafted from rare natural herbs and premium organic botanicals that deliver visible results. Our unique formula stops hair fall, promotes thick growth, and smooths hair textures within weeks without any harmful chemicals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PRODUCTS SECTION -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2 class="section-title">Select Your Pack</h2>
+            <div class="products-grid">
+                
+                <!-- Product 1: 50ml -->
+                <div class="product-card">
+                    <div class="product-img-box">StrandFlora 50ml</div>
+                    <div class="product-info">
+                        <h3>StrandFlora Organic Care</h3>
+                        <p class="size-tag">Packing: 50ml</p>
+                        <p class="price">
+                            <span class="old-price">Rs. 1,000</span>
+                            <span class="new-price">Rs. 900</span>
+                        </p>
+                        <button class="btn-secondary">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 2: 100ml -->
+                <div class="product-card">
+                    <div class="product-img-box">StrandFlora 100ml</div>
+                    <div class="product-info">
+                        <h3>StrandFlora Organic Care</h3>
+                        <p class="size-tag">Packing: 100ml</p>
+                        <p class="price">
+                            <span class="old-price">Rs. 1,500</span>
+                            <span class="new-price">Rs. 1,250</span>
+                        </p>
+                        <button class="btn-secondary">Add to Cart</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. REVIEWS SECTION -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Mera hair fall 2 weeks mein bilkul ruk gaya. Highly recommended!"</p>
+                    <h4>- Ayesha K.</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The shine after using the 100ml pack is amazing. Very lightweight oil."</p>
+                    <h4>- Sana M.</h4>
+                </div>
+            </div>
+
+            <!-- Review Submission Form -->
+            <div class="review-form-container">
+                <h3>Share Your Feedback</h3>
+                <form class="review-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <select required>
+                        <option value="" disabled selected>Give Stars</option>
+                        <option value="5">5 Stars ★★★★★</option>
+                        <option value="4">4 Stars ★★★★</option>
+                        <option value="3">3 Stars ★★★</option>
+                    </select>
+                    <textarea placeholder="Write your review here..." rows="4" required></textarea>
+                    <button type="submit" class="btn-primary">Submit Review</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GSAP Animation Libraries via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Script for Slow & Premium Animations -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Hero Load Animation
+        gsap.from(".animate-hero", {
+            opacity: 0,
+            y: 40,
+            duration: 1.8,
+            stagger: 0.4,
+            ease: "power3.out"
+        });
+
+        // 2. About Section Scroll Reveal
+        gsap.from(".reveal-left", {
+            scrollTrigger: {
+                trigger: ".about-section",
+                start: "top 85%",
+            },
+            opacity: 0,
+            x: -60,
+            duration: 1.6,
+            ease: "power2.out"
+        });
+
+        gsap.from(".reveal-right", {
+            scrollTrigger: {
+                trigger: ".about-section",
+                start: "top 85%",
+            },
+            opacity: 0,
+            x: 60,
+            duration: 1.6,
+            ease: "power2.out"
+        });
+
+        // 3. Products Grid Fade-in
+        gsap.from(".product-card", {
+            scrollTrigger: {
+                trigger: ".products-section",
+                start: "top 85%",
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1.5,
+            stagger: 0.5,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+</html>
