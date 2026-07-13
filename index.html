@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
+      // Theme colors aur Background image load karne ke liye
       fetch('/data/theme.json')
         .then(response => response.json())
         .then(data => {
@@ -17,6 +18,13 @@
             document.documentElement.style.setProperty('--primary-color', data.primary_color);
             document.documentElement.style.setProperty('--bg-color', data.bg_color);
             document.body.style.fontFamily = data.font_family + ', sans-serif';
+            
+            // Agar admin panel se background image upload hui hai
+            if(data.bg_image) {
+                document.body.style.backgroundImage = `url('${data.bg_image}')`;
+                document.body.style.backgroundAttachment = 'fixed';
+                document.body.style.backgroundSize = 'cover';
+            }
           }
         })
         .catch(err => console.log("Theme load nahi hui"));
@@ -101,7 +109,7 @@
                         aboutBox.style.backgroundImage = `url('${data.about_image}')`;
                         aboutBox.style.backgroundSize = 'cover';
                         aboutBox.style.backgroundPosition = 'center';
-                        aboutBox.innerText = ''; // Image load hone par text mita denge
+                        aboutBox.innerText = '';
                     }
                 }
             }).catch(err => console.log("Text load nahi hua"));
