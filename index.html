@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-      // Theme colors load karne ke liye
       fetch('/data/theme.json')
         .then(response => response.json())
         .then(data => {
@@ -46,7 +45,7 @@
     <section id="about" class="about-section">
         <div class="container about-grid">
             <div class="about-image reveal-left">
-                <div class="organic-placeholder">Pure Botanical Extracts</div>
+                <div id="dyn-about-box" class="organic-placeholder">Pure Botanical Extracts</div>
             </div>
             <div class="about-text reveal-right">
                 <h2 id="dyn-about-title">Our Organic Philosophy</h2>
@@ -85,7 +84,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     
     <script>
-        // Homepage Text aur Hero Image load karne ki script
+        // Homepage Content load karne ki script
         fetch('/data/homepage.json')
             .then(res => res.json())
             .then(data => {
@@ -96,6 +95,13 @@
                     if(data.about_text) document.getElementById('dyn-about-text').innerText = data.about_text;
                     if(data.hero_image) {
                         document.getElementById('home').style.backgroundImage = `linear-gradient(rgba(26, 48, 27, 0.7), rgba(26, 48, 27, 0.5)), url('${data.hero_image}')`;
+                    }
+                    if(data.about_image) {
+                        const aboutBox = document.getElementById('dyn-about-box');
+                        aboutBox.style.backgroundImage = `url('${data.about_image}')`;
+                        aboutBox.style.backgroundSize = 'cover';
+                        aboutBox.style.backgroundPosition = 'center';
+                        aboutBox.innerText = ''; // Image load hone par text mita denge
                     }
                 }
             }).catch(err => console.log("Text load nahi hua"));
