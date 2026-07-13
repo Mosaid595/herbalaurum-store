@@ -32,3 +32,12 @@ collections:
           - { label: "Background Color", name: "bg_color", widget: "color", default: "#ffffff" }
           - { label: "Font Style", name: "font_family", widget: "select", options: ["Poppins", "Playfair Display", "Roboto", "Montserrat"], default: "Poppins" }
           - { label: "Layout Style", name: "layout", widget: "select", options: ["Minimalist Grid", "Classic List"], default: "Minimalist Grid" }
+
+      - name: "homepage"
+        label: "Homepage Text Content"
+        file: "data/homepage.json"
+        fields:
+          - { label: "Hero Main Heading", name: "hero_title", widget: "string", default: "Natural Care for Your Beautiful Hair" }
+          - { label: "Hero Subtitle/Paragraph", name: "hero_text", widget: "text", default: "Minimalist, plant-based formulas crafted to restore strength, shine, and natural growth." }
+          - { label: "About Us Section Heading", name: "about_title", widget: "string", default: "Our Organic Philosophy" }
+          - { label: "About Us Story Content", name: "about_text", widget: "text", default: "StrandFlora is specially crafted from rare natural herbs and premium organic botanicals..." }
