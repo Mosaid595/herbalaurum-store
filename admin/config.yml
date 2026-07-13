@@ -42,3 +42,4 @@ collections:
           - { label: "Hero Background Image", name: "hero_image", widget: "image" }
           - { label: "About Us Heading", name: "about_title", widget: "string", default: "Our Organic Philosophy" }
           - { label: "About Us Content", name: "about_text", widget: "text", default: "StrandFlora is specially crafted from rare natural herbs..." }
+          - { label: "About Us Image", name: "about_image", widget: "image" }
