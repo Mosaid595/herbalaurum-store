@@ -25,14 +25,15 @@ collections:
       preview: false
     files:
       - name: "theme"
-        label: "Theme & Colors"
+        label: "Theme, Colors & Animations"
         file: "data/theme.json"
         fields:
           - { label: "Primary Color (Buttons/Headers)", name: "primary_color", widget: "color", default: "#2E5A44" }
           - { label: "Background Color", name: "bg_color", widget: "color", default: "#ffffff" }
           - { label: "Background Image (Optional)", name: "bg_image", widget: "image", required: false }
           - { label: "Font Style", name: "font_family", widget: "select", options: ["Poppins", "Playfair Display", "Roboto", "Montserrat"], default: "Poppins" }
-          - { label: "Layout Style", name: "layout", widget: "select", options: ["Minimalist Grid", "Classic List"], default: "Minimalist Grid" }
+          - { label: "Animation Speed (Seconds)", name: "anim_duration", widget: "select", options: ["1.0", "1.5", "2.0", "2.5"], default: "1.8" }
+          - { label: "Animation Direction", name: "anim_direction", widget: "select", options: ["Fade Up", "Fade Down", "Just Fade In"], default: "Fade Up" }
 
       - name: "homepage"
         label: "Homepage Content"
