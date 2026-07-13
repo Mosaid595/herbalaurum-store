@@ -11,6 +11,18 @@
     <!-- Main Style Sheet -->
     <link rel="stylesheet" href="style.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+  fetch('/data/theme.json')
+    .then(response => response.json())
+    .then(data => {
+      if(data) {
+        document.documentElement.style.setProperty('--primary-color', data.primary_color);
+        document.documentElement.style.setProperty('--bg-color', data.bg_color);
+        document.body.style.fontFamily = data.font_family + ', sans-serif';
+      }
+    })
+    .catch(err => console.log("Theme load nahi hui"));
+</script>
 </head>
 <body>
 
