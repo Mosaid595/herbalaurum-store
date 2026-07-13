@@ -1,3 +1,9 @@
+/* --- ROOT VARIABLES (Admin Panel Controls These) --- */
+:root {
+    --primary-color: #1A301B; /* Default Premium Dark Forest Green */
+    --bg-color: #F3ECE0;      /* Default Rich luxury cream background */
+}
+
 /* --- RESET & BASE STYLES --- */
 * {
     margin: 0;
@@ -7,7 +13,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #F3ECE0; /* Rich luxury cream background */
+    background-color: var(--bg-color); 
     color: #2F3E30; /* Organic charcoal-green for body text */
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -22,7 +28,7 @@ body {
 
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
-    color: #1A301B; /* Premium Dark Forest Green */
+    color: var(--primary-color); 
 }
 
 /* --- NAVIGATION BAR --- */
@@ -31,7 +37,7 @@ h1, h2, h3 {
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background-color: #1A301B; /* Solid rich green navbar */
+    background-color: var(--primary-color); 
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -99,7 +105,7 @@ h1, h2, h3 {
     display: inline-block;
     padding: 14px 35px;
     background-color: #D4AF37; /* Contrast Gold Color */
-    color: #1A301B;
+    color: var(--primary-color);
     text-decoration: none;
     border-radius: 4px;
     font-weight: 600;
@@ -117,7 +123,7 @@ h1, h2, h3 {
 .btn-secondary {
     width: 100%;
     padding: 12px;
-    background-color: #1A301B; /* Solid green checkout buttons */
+    background-color: var(--primary-color); 
     color: #FAF7F2;
     border: none;
     border-radius: 4px;
@@ -128,7 +134,7 @@ h1, h2, h3 {
 
 .btn-secondary:hover {
     background-color: #D4AF37;
-    color: #1A301B;
+    color: var(--primary-color);
 }
 
 /* --- ABOUT SECTION --- */
@@ -145,7 +151,7 @@ h1, h2, h3 {
 
 .organic-placeholder {
     height: 380px;
-    background-color: #1A301B;
+    background-color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,7 +175,7 @@ h1, h2, h3 {
 
 /* --- PRODUCTS SECTION --- */
 .products-section {
-    background-color: #F3ECE0;
+    background-color: var(--bg-color);
 }
 
 .section-title {
@@ -200,7 +206,7 @@ h1, h2, h3 {
 
 .product-img-box {
     height: 250px;
-    background-color: #1A301B;
+    background-color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -252,8 +258,8 @@ h1, h2, h3 {
 }
 
 .review-card {
-    background-color: #F3ECE0;
-    border-left: 4px solid #1A301B;
+    background-color: var(--bg-color);
+    border-left: 4px solid var(--primary-color);
     padding: 30px;
     border-radius: 6px;
 }
@@ -272,7 +278,7 @@ h1, h2, h3 {
 
 /* FORM STYLING */
 .review-form-container {
-    background-color: #F3ECE0;
+    background-color: var(--bg-color);
     border: 1px solid rgba(26, 48, 27, 0.15);
     padding: 40px;
     border-radius: 8px;
@@ -297,7 +303,7 @@ h1, h2, h3 {
 }
 
 .review-form input:focus, .review-form select:focus, .review-form textarea:focus {
-    border-color: #1A301B;
+    border-color: var(--primary-color);
     box-shadow: 0 0 5px rgba(26, 48, 27, 0.2);
 }
 
