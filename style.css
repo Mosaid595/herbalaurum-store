@@ -320,3 +320,21 @@ h1, h2, h3 {
         grid-template-columns: 1fr;
     }
 }
+/* --- BACKGROUND VIDEO STYYLING --- */
+.bg-video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bg-video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15; /* Isko kam ya zyada kar ke video ko light/dark kar sakte hain */
+}
