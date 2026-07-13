@@ -30,6 +30,7 @@ collections:
         fields:
           - { label: "Primary Color (Buttons/Headers)", name: "primary_color", widget: "color", default: "#2E5A44" }
           - { label: "Background Color", name: "bg_color", widget: "color", default: "#ffffff" }
+          - { label: "Background Image (Optional)", name: "bg_image", widget: "image", required: false }
           - { label: "Font Style", name: "font_family", widget: "select", options: ["Poppins", "Playfair Display", "Roboto", "Montserrat"], default: "Poppins" }
           - { label: "Layout Style", name: "layout", widget: "select", options: ["Minimalist Grid", "Classic List"], default: "Minimalist Grid" }
 
