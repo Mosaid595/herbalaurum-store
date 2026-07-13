@@ -17,7 +17,8 @@ collections:
       - { label: "Price (PKR)", name: "price", widget: "number" }
       - { label: "Description", name: "body", widget: "markdown" }
       - { label: "Product Image", name: "image", widget: "image" }
-      - name: "settings"
+
+  - name: "settings"
     label: "Website Settings"
     delete: false
     editor:
