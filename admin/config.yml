@@ -31,9 +31,10 @@ collections:
           - { label: "Primary Color (Buttons/Headers)", name: "primary_color", widget: "color", default: "#2E5A44" }
           - { label: "Background Color", name: "bg_color", widget: "color", default: "#ffffff" }
           - { label: "Background Image (Optional)", name: "bg_image", widget: "image", required: false }
+          - { label: "Background Video MP4 URL (Optional)", name: "bg_video", widget: "string", required: false }
           - { label: "Font Style", name: "font_family", widget: "select", options: ["Poppins", "Playfair Display", "Roboto", "Montserrat"], default: "Poppins" }
           - { label: "Animation Speed (Seconds)", name: "anim_duration", widget: "select", options: ["1.0", "1.5", "2.0", "2.5"], default: "1.8" }
-          - { label: "Animation Direction", name: "anim_direction", widget: "select", options: ["Fade Up", "Fade Down", "Just Fade In"], default: "Fade Up" }
+          - { label: "Animation Style", name: "anim_direction", widget: "select", options: ["Fade Up", "Fade Down", "Fade Left", "Fade Right", "Just Fade In", "Zoom In"], default: "Fade Up" }
 
       - name: "homepage"
         label: "Homepage Content"
