@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herbal Aurum | Premium Organic Hair Care</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
     <link rel="stylesheet" href="style.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
@@ -50,6 +52,7 @@
 </head>
 <body>
 
+    <!-- 1. NAVIGATION BAR -->
     <nav class="navbar">
         <div class="logo">Herbal Aurum</div>
         <ul class="nav-links">
@@ -60,6 +63,7 @@
         </ul>
     </nav>
 
+    <!-- 2. HERO SECTION -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 id="dyn-hero-title" class="animate-hero">Natural Care for Your Beautiful Hair</h1>
@@ -68,6 +72,7 @@
         </div>
     </section>
 
+    <!-- 3. ABOUT US SECTION -->
     <section id="about" class="about-section">
         <div class="container about-grid">
             <div class="about-image reveal-left">
@@ -80,14 +85,17 @@
         </div>
     </section>
 
+    <!-- 4. PRODUCTS SECTION -->
     <section id="products" class="products-section">
         <div class="container">
             <h2 class="section-title">Select Your Pack</h2>
             <div id="dynamic-products" class="products-grid">
-                </div>
+                <!-- Products dynamically load honge -->
+            </div>
         </div>
     </section>
 
+    <!-- 5. REVIEWS SECTION -->
     <section id="reviews" class="reviews-section">
         <div class="container">
             <h2 class="section-title">What Our Customers Say</h2>
@@ -106,6 +114,7 @@
         </div>
     </section>
 
+    <!-- GSAP Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     
@@ -143,7 +152,7 @@
                     const card = document.createElement('div');
                     card.className = 'product-card';
                     
-                    // Hover video check lagaya hai
+                    // Hover video check
                     const videoTag = prod.hover_video ? 
                         `<video class="product-hover-video" muted loop style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 0.3s ease;"><source src="${prod.hover_video}" type="video/mp4"></video>` 
                         : '';
@@ -174,21 +183,27 @@
                         imgBox.addEventListener('mouseleave', () => {
                             videoElement.style.opacity = '0';
                             videoElement.pause();
-                            videoElement.currentTime = 0; // Video ko shuru se reset karne ke liye
+                            videoElement.currentTime = 0;
                         });
                     }
 
                     container.appendChild(card);
                 });
 
+                // Products Scroll Animation (Upar-Neeche donon taraf toggleActions ke sath)
                 gsap.from(".product-card", {
-                    scrollTrigger: { trigger: ".products-section", start: "top 85%" },
+                    scrollTrigger: { 
+                        trigger: ".products-section", 
+                        start: "top 85%",
+                        end: "bottom 15%",
+                        toggleActions: "play reverse play reverse"
+                    },
                     opacity: 0,
                     y: window.siteSettings.yMove,
                     x: window.siteSettings.xMove,
                     scale: window.siteSettings.scaleMove,
                     duration: window.siteSettings.duration,
-                    stagger: 0.3,
+                    stagger: 0.2,
                     ease: "power2.out"
                 });
             });
@@ -197,18 +212,26 @@
     <script>
         function initAnimations() {
             gsap.registerPlugin(ScrollTrigger);
+            
+            // 1. Hero Animation (Page Load par)
             gsap.from(".animate-hero", {
                 opacity: 0,
                 y: window.siteSettings.yMove,
                 x: window.siteSettings.xMove,
                 scale: window.siteSettings.scaleMove,
                 duration: window.siteSettings.duration,
-                stagger: 0.4,
+                stagger: 0.3,
                 ease: "power3.out"
             });
 
+            // 2. About Section Left Side (Upar-Neeche scroll toggle)
             gsap.from(".reveal-left", {
-                scrollTrigger: { trigger: ".about-section", start: "top 85%" },
+                scrollTrigger: { 
+                    trigger: ".about-section", 
+                    start: "top 85%",
+                    end: "bottom 15%",
+                    toggleActions: "play reverse play reverse" 
+                },
                 opacity: 0,
                 x: window.siteSettings.xMove ? window.siteSettings.xMove * -1 : -60,
                 y: window.siteSettings.yMove,
@@ -216,8 +239,14 @@
                 ease: "power2.out"
             });
 
+            // 3. About Section Right Side (Upar-Neeche scroll toggle)
             gsap.from(".reveal-right", {
-                scrollTrigger: { trigger: ".about-section", start: "top 85%" },
+                scrollTrigger: { 
+                    trigger: ".about-section", 
+                    start: "top 85%",
+                    end: "bottom 15%",
+                    toggleActions: "play reverse play reverse" 
+                },
                 opacity: 0,
                 x: window.siteSettings.xMove ? window.siteSettings.xMove : 60,
                 y: window.siteSettings.yMove,
