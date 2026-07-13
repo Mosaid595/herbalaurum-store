@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-      // Theme colors aur Background image load karne ke liye
+      // Global variable settings ke liye
+      window.siteSettings = { duration: 1.8, yMove: 40, xMove: 60 };
+
+      // Theme settings aur Animations load karne ke liye
       fetch('/data/theme.json')
         .then(response => response.json())
         .then(data => {
@@ -19,15 +22,29 @@
             document.documentElement.style.setProperty('--bg-color', data.bg_color);
             document.body.style.fontFamily = data.font_family + ', sans-serif';
             
-            // Agar admin panel se background image upload hui hai
             if(data.bg_image) {
                 document.body.style.backgroundImage = `url('${data.bg_image}')`;
                 document.body.style.backgroundAttachment = 'fixed';
                 document.body.style.backgroundSize = 'cover';
             }
+
+            // Animation Settings apply karna
+            if(data.anim_duration) window.siteSettings.duration = parseFloat(data.anim_duration);
+            if(data.anim_direction) {
+                if(data.anim_direction === "Fade Down") window.siteSettings.yMove = -40;
+                if(data.anim_direction === "Just Fade In") {
+                    window.siteSettings.yMove = 0;
+                    window.siteSettings.xMove = 0;
+                }
+            }
+            // Trigger customized animations
+            initAnimations();
           }
         })
-        .catch(err => console.log("Theme load nahi hui"));
+        .catch(err => {
+            console.log("Theme load nahi hui, default animations chalengi");
+            initAnimations();
+        });
     </script>
 </head>
 <body>
@@ -138,16 +155,49 @@
                     container.appendChild(card);
                 });
 
+                // Custom dynamic product animations
                 gsap.from(".product-card", {
                     scrollTrigger: { trigger: ".products-section", start: "top 85%" },
-                    opacity: 0, y: 50, duration: 1.5, stagger: 0.3, ease: "power2.out"
+                    opacity: 0, 
+                    y: window.siteSettings.yMove, 
+                    duration: window.siteSettings.duration, 
+                    stagger: 0.3, 
+                    ease: "power2.out"
                 });
             });
     </script>
 
     <script>
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from(".animate-hero", { opacity: 0, y: 40, duration: 1.8, stagger: 0.4, ease: "power3.out" });
+        // Main Dynamic Animation Function
+        function initAnimations() {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Hero Load Animation
+            gsap.from(".animate-hero", {
+                opacity: 0,
+                y: window.siteSettings.yMove,
+                duration: window.siteSettings.duration,
+                stagger: 0.4,
+                ease: "power3.out"
+            });
+
+            // About Section Scroll Reveal
+            gsap.from(".reveal-left", {
+                scrollTrigger: { trigger: ".about-section", start: "top 85%" },
+                opacity: 0,
+                x: -window.siteSettings.xMove,
+                duration: window.siteSettings.duration,
+                ease: "power2.out"
+            });
+
+            gsap.from(".reveal-right", {
+                scrollTrigger: { trigger: ".about-section", start: "top 85%" },
+                opacity: 0,
+                x: window.siteSettings.xMove,
+                duration: window.siteSettings.duration,
+                ease: "power2.out"
+            });
+        }
     </script>
 </body>
 </html>
