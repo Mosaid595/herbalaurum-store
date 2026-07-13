@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
+      // Theme colors load karne ke liye
       fetch('/data/theme.json')
         .then(response => response.json())
         .then(data => {
@@ -36,8 +37,8 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="animate-hero">Natural Care for Your Beautiful Hair</h1>
-            <p class="animate-hero">Minimalist, plant-based formulas crafted to restore strength, shine, and natural growth.</p>
+            <h1 id="dyn-hero-title" class="animate-hero">Natural Care for Your Beautiful Hair</h1>
+            <p id="dyn-hero-text" class="animate-hero">Minimalist, plant-based formulas crafted to restore strength, shine, and natural growth.</p>
             <a href="#products" class="btn-primary animate-hero">Shop Our Packs</a>
         </div>
     </section>
@@ -48,8 +49,8 @@
                 <div class="organic-placeholder">Pure Botanical Extracts</div>
             </div>
             <div class="about-text reveal-right">
-                <h2>Our Organic Philosophy</h2>
-                <p>StrandFlora is specially crafted from rare natural herbs and premium organic botanicals that deliver visible results. Our unique formula stops hair fall, promotes thick growth, and smooths hair textures within weeks without any harmful chemicals.</p>
+                <h2 id="dyn-about-title">Our Organic Philosophy</h2>
+                <p id="dyn-about-text">StrandFlora is specially crafted from rare natural herbs and premium organic botanicals that deliver visible results.</p>
             </div>
         </div>
     </section>
@@ -57,7 +58,6 @@
     <section id="products" class="products-section">
         <div class="container">
             <h2 class="section-title">Select Your Pack</h2>
-            
             <div id="dynamic-products" class="products-grid">
                 </div>
         </div>
@@ -66,7 +66,6 @@
     <section id="reviews" class="reviews-section">
         <div class="container">
             <h2 class="section-title">What Our Customers Say</h2>
-            
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
@@ -79,22 +78,6 @@
                     <h4>- Sana M.</h4>
                 </div>
             </div>
-
-            <div class="review-form-container">
-                <h3>Share Your Feedback</h3>
-                <form class="review-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <select required>
-                        <option value="" disabled selected>Give Stars</option>
-                        <option value="5">5 Stars ★★★★★</option>
-                        <option value="4">4 Stars ★★★★</option>
-                        <option value="3">3 Stars ★★★</option>
-                    </select>
-                    <textarea placeholder="Write your review here..." rows="4" required></textarea>
-                    <button type="submit" class="btn-primary">Submit Review</button>
-                </form>
-            </div>
-
         </div>
     </section>
 
@@ -102,15 +85,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     
     <script>
-        // Netlify CMS ke folder se products load karne ka tareeqa
+        // Homepage Text aur Hero Image load karne ki script
+        fetch('/data/homepage.json')
+            .then(res => res.json())
+            .then(data => {
+                if(data) {
+                    if(data.hero_title) document.getElementById('dyn-hero-title').innerText = data.hero_title;
+                    if(data.hero_text) document.getElementById('dyn-hero-text').innerText = data.hero_text;
+                    if(data.about_title) document.getElementById('dyn-about-title').innerText = data.about_title;
+                    if(data.about_text) document.getElementById('dyn-about-text').innerText = data.about_text;
+                    if(data.hero_image) {
+                        document.getElementById('home').style.backgroundImage = `linear-gradient(rgba(26, 48, 27, 0.7), rgba(26, 48, 27, 0.5)), url('${data.hero_image}')`;
+                    }
+                }
+            }).catch(err => console.log("Text load nahi hua"));
+
+        // Products fetch karne ki script
         fetch('/products/index.json')
             .then(res => res.json())
             .then(products => {
                 const container = document.getElementById('dynamic-products');
-                if(!products || products.length === 0) {
-                    container.innerHTML = "<p style='text-align:center;'>No products available yet.</p>";
-                    return;
-                }
+                if(!products || products.length === 0) return;
                 
                 products.forEach(prod => {
                     const card = document.createElement('div');
@@ -122,80 +117,23 @@
                         <div class="product-info">
                             <h3>${prod.title}</h3>
                             <p class="size-tag">Organic Formula</p>
-                            <p class="price">
-                                <span class="new-price">Rs. ${prod.price}</span>
-                            </p>
+                            <p class="price"><span class="new-price">Rs. ${prod.price}</span></p>
                             <button class="btn-secondary">Add to Cart</button>
                         </div>
                     `;
                     container.appendChild(card);
                 });
 
-                // Products load hone ke baad animations chalane ke liye
                 gsap.from(".product-card", {
-                    scrollTrigger: {
-                        trigger: ".products-section",
-                        start: "top 85%",
-                    },
-                    opacity: 0,
-                    y: 50,
-                    duration: 1.5,
-                    stagger: 0.3,
-                    ease: "power2.out"
+                    scrollTrigger: { trigger: ".products-section", start: "top 85%" },
+                    opacity: 0, y: 50, duration: 1.5, stagger: 0.3, ease: "power2.out"
                 });
-            })
-            .catch(err => {
-                console.log("Error loading products via JSON:", err);
-                // Fallback setup agar files seedha json na banayein
-                document.getElementById('dynamic-products').innerHTML = "<p style='text-align:center;'>Products setting up...</p>";
             });
     </script>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
-
-        // Hero Load Animation
-        gsap.from(".animate-hero", {
-            opacity: 0,
-            y: 40,
-            duration: 1.8,
-            stagger: 0.4,
-            ease: "power3.out"
-        });
-
-        // About Section Scroll Reveal
-        gsap.from(".reveal-left", {
-            scrollTrigger: {
-                trigger: ".about-section",
-                start: "top 85%",
-            },
-            opacity: 0,
-            x: -60,
-            duration: 1.6,
-            ease: "power2.out"
-        });
-
-        gsap.from(".reveal-right", {
-            scrollTrigger: {
-                trigger: ".about-section",
-                start: "top 85%",
-            },
-            opacity: 0,
-            x: 60,
-            duration: 1.6,
-            ease: "power2.out"
-        });
-    </script>
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
+        gsap.from(".animate-hero", { opacity: 0, y: 40, duration: 1.8, stagger: 0.4, ease: "power3.out" });
     </script>
 </body>
 </html>
