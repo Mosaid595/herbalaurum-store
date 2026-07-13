@@ -10,10 +10,9 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-      // Global variable settings ke liye
-      window.siteSettings = { duration: 1.8, yMove: 40, xMove: 60 };
+      // Global animation state
+      window.siteSettings = { duration: 1.8, yMove: 40, xMove: 0, scaleMove: 1 };
 
-      // Theme settings aur Animations load karne ke liye
       fetch('/data/theme.json')
         .then(response => response.json())
         .then(data => {
@@ -22,27 +21,32 @@
             document.documentElement.style.setProperty('--bg-color', data.bg_color);
             document.body.style.fontFamily = data.font_family + ', sans-serif';
             
-            if(data.bg_image) {
+            // Background Video setup
+            if(data.bg_video) {
+                const videoDiv = document.createElement('div');
+                videoDiv.className = 'bg-video-container';
+                videoDiv.innerHTML = `<video autoplay muted loop playsinline><source src="${data.bg_video}" type="video/mp4"></video>`;
+                document.body.appendChild(videoDiv);
+            } else if(data.bg_image) {
                 document.body.style.backgroundImage = `url('${data.bg_image}')`;
                 document.body.style.backgroundAttachment = 'fixed';
                 document.body.style.backgroundSize = 'cover';
             }
 
-            // Animation Settings apply karna
+            // Advanced Animations Controller
             if(data.anim_duration) window.siteSettings.duration = parseFloat(data.anim_duration);
             if(data.anim_direction) {
-                if(data.anim_direction === "Fade Down") window.siteSettings.yMove = -40;
-                if(data.anim_direction === "Just Fade In") {
-                    window.siteSettings.yMove = 0;
-                    window.siteSettings.xMove = 0;
-                }
+                if(data.anim_direction === "Fade Down") { window.siteSettings.yMove = -40; }
+                else if(data.anim_direction === "Fade Left") { window.siteSettings.xMove = 60; window.siteSettings.yMove = 0; }
+                else if(data.anim_direction === "Fade Right") { window.siteSettings.xMove = -60; window.siteSettings.yMove = 0; }
+                else if(data.anim_direction === "Just Fade In") { window.siteSettings.yMove = 0; }
+                else if(data.anim_direction === "Zoom In") { window.siteSettings.yMove = 0; window.siteSettings.scaleMove = 0.8; }
             }
-            // Trigger customized animations
             initAnimations();
           }
         })
         .catch(err => {
-            console.log("Theme load nahi hui, default animations chalengi");
+            console.log("Settings load nahi huin");
             initAnimations();
         });
     </script>
@@ -109,7 +113,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     
     <script>
-        // Homepage Content load karne ki script
+        // Data content load karne ki script
         fetch('/data/homepage.json')
             .then(res => res.json())
             .then(data => {
@@ -129,9 +133,9 @@
                         aboutBox.innerText = '';
                     }
                 }
-            }).catch(err => console.log("Text load nahi hua"));
+            }).catch(err => console.log("Content data process nahi hua"));
 
-        // Products fetch karne ki script
+        // Products loading
         fetch('/products/index.json')
             .then(res => res.json())
             .then(products => {
@@ -155,37 +159,40 @@
                     container.appendChild(card);
                 });
 
-                // Custom dynamic product animations
                 gsap.from(".product-card", {
                     scrollTrigger: { trigger: ".products-section", start: "top 85%" },
-                    opacity: 0, 
-                    y: window.siteSettings.yMove, 
-                    duration: window.siteSettings.duration, 
-                    stagger: 0.3, 
+                    opacity: 0,
+                    y: window.siteSettings.yMove,
+                    x: window.siteSettings.xMove,
+                    scale: window.siteSettings.scaleMove,
+                    duration: window.siteSettings.duration,
+                    stagger: 0.3,
                     ease: "power2.out"
                 });
             });
     </script>
 
     <script>
-        // Main Dynamic Animation Function
         function initAnimations() {
             gsap.registerPlugin(ScrollTrigger);
             
-            // Hero Load Animation
+            // Hero Load Dynamic Animation
             gsap.from(".animate-hero", {
                 opacity: 0,
                 y: window.siteSettings.yMove,
+                x: window.siteSettings.xMove,
+                scale: window.siteSettings.scaleMove,
                 duration: window.siteSettings.duration,
                 stagger: 0.4,
                 ease: "power3.out"
             });
 
-            // About Section Scroll Reveal
+            // Section Scroll reveals
             gsap.from(".reveal-left", {
                 scrollTrigger: { trigger: ".about-section", start: "top 85%" },
                 opacity: 0,
-                x: -window.siteSettings.xMove,
+                x: window.siteSettings.xMove ? window.siteSettings.xMove * -1 : -60,
+                y: window.siteSettings.yMove,
                 duration: window.siteSettings.duration,
                 ease: "power2.out"
             });
@@ -193,7 +200,8 @@
             gsap.from(".reveal-right", {
                 scrollTrigger: { trigger: ".about-section", start: "top 85%" },
                 opacity: 0,
-                x: window.siteSettings.xMove,
+                x: window.siteSettings.xMove ? window.siteSettings.xMove : 60,
+                y: window.siteSettings.yMove,
                 duration: window.siteSettings.duration,
                 ease: "power2.out"
             });
