@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herbal Aurum | Premium Organic Hair Care</title>
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Inline Styling for 100% Guaranteed Load -->
+    <!-- Inline Styling -->
     <style>
         :root {
             --primary-color: #1B3B2B;
@@ -18,7 +19,11 @@
             --text-dark: #2C332E;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
 
         body {
             font-family: 'Manrope', sans-serif;
@@ -64,12 +69,13 @@
             transition: color 0.3s ease;
         }
 
-        .nav-links a:hover { color: var(--accent-gold); }
+        .nav-links a:hover { 
+            color: var(--accent-gold); 
+        }
 
         /* 2. Hero Section */
         .hero {
-            padding: 90px 20px 70px;
-            text-align: center;
+            padding: 70px 20px 60px;
             background: radial-gradient(circle, #FDFBF7 0%, #F4EFE4 100%);
         }
 
@@ -89,20 +95,16 @@
 
         .hero-title {
             font-family: 'Fraunces', serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--primary-color);
             line-height: 1.25;
             margin-bottom: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .hero-text {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #4A5D52;
-            max-width: 650px;
-            margin: 0 auto 35px;
+            margin-bottom: 25px;
         }
 
         .btn-primary {
@@ -210,9 +212,12 @@
             letter-spacing: 1px;
         }
 
-        /* Responsive */
+        /* Responsive Settings */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.2rem; }
+            .hero-title { font-size: 2.2rem; text-align: center; }
+            .hero-text { text-align: center; }
+            .hero-badge { display: block; text-align: center; }
+            .hero-actions { justify-content: center; }
             .nav-links { display: none; }
         }
     </style>
@@ -231,15 +236,36 @@
         </ul>
     </nav>
 
-    <!-- 2. HERO SECTION -->
+    <!-- 2. HERO SECTION WITH AESTHETIC BOTANICAL PICTURE -->
     <section id="home" class="hero">
-        <div class="hero-badge animate-hero">🌿 100% Organic Botanical Formula</div>
-        <h1 class="hero-title animate-hero">Natural Care for Stronger, Thicker Hair</h1>
-        <p class="hero-text animate-hero">Minimalist, plant-based herbal hair oil crafted to restore hair strength, shine, and natural growth.</p>
-        
-        <div class="animate-hero" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
-            <a href="#products" class="btn-primary">Shop Our Packs</a>
-            <a href="#about" class="btn-secondary">Explore Philosophy</a>
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
+            
+            <!-- Left Text Content -->
+            <div class="animate-hero">
+                <div class="hero-badge">🌿 100% Organic Botanical Hair Care</div>
+                <h1 class="hero-title">Natural Care for Stronger, Thicker Hair</h1>
+                <p class="hero-text">Minimalist, plant-based herbal hair oil crafted to reduce hair fall, nourish roots, and restore natural scalp shine.</p>
+                
+                <div class="hero-actions" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 25px;">
+                    <a href="#products" class="btn-primary">Shop Our Packs</a>
+                    <a href="#about" class="btn-secondary">Explore Philosophy</a>
+                </div>
+            </div>
+
+            <!-- Right Aesthetic Picture -->
+            <div class="animate-hero" style="display: flex; justify-content: center; position: relative;">
+                <div style="position: relative; width: 100%; max-width: 440px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(27, 59, 43, 0.15); border: 2px solid #E5D9C3;">
+                    <img src="https://images.unsplash.com/photo-1608248597266-c89050d2c121?auto=format&fit=crop&w=800&q=80" 
+                         alt="Herbal Hair Oil Aesthetic Drops" 
+                         style="width: 100%; height: 420px; object-fit: cover; display: block;">
+                    
+                    <!-- Floating Aesthetic Badge -->
+                    <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(253, 251, 247, 0.92); backdrop-filter: blur(8px); padding: 12px 20px; border-radius: 12px; border: 1px solid #C9A24B; font-family: 'Fraunces', serif; color: #1B3B2B; font-size: 0.9rem; font-weight: 600;">
+                        ✨ Pure Essential Oils & Botanicals
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -253,11 +279,11 @@
       </svg>
     </div>
 
-    <!-- 3. ABOUT US SECTION (ORIGINAL PREMIUM 3D DROPPER GLASS BOTTLE VISUAL) -->
+    <!-- 3. ABOUT US SECTION (3D GLASS DROPPER BOTTLE) -->
     <section id="about" style="padding: 60px 0;">
         <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center;">
             
-            <!-- PREMIUM 3D DROPPER GLASS BOTTLE -->
+            <!-- Glass Bottle Visual -->
             <div class="reveal" style="display: flex; justify-content: center; align-items: center; padding: 10px;">
                 <div style="position: relative; width: 100%; max-width: 270px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.18));">
                     <svg viewBox="0 0 200 360" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
