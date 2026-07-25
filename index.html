@@ -44,7 +44,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#timeline">Journey</a></li>
-            <li><a href="#products">Products</a></li>
+            <li><a href="#products">Packs & Offers</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
     </nav>
@@ -77,14 +77,12 @@
                 <div class="bottle-wrapper" style="position: relative; width: 100%; max-width: 270px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.18));">
                     <svg class="bottle-svg" viewBox="0 0 200 360" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
                         <defs>
-                            <!-- Liquid Fill Gradient (Rich Organic Dark Green Oil) -->
                             <linearGradient id="oil-liquid" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#3A644C"/>
                                 <stop offset="40%" stop-color="#1B3B2B"/>
                                 <stop offset="100%" stop-color="#0F241A"/>
                             </linearGradient>
 
-                            <!-- Glass Reflection Highlight -->
                             <linearGradient id="glass-glare" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/>
                                 <stop offset="25%" stop-color="#ffffff" stop-opacity="0.05"/>
@@ -92,7 +90,6 @@
                                 <stop offset="100%" stop-color="#ffffff" stop-opacity="0.15"/>
                             </linearGradient>
 
-                            <!-- Premium Metallic Gold Cap -->
                             <linearGradient id="gold-cap" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stop-color="#9A7029"/>
                                 <stop offset="30%" stop-color="#EED596"/>
@@ -101,7 +98,6 @@
                                 <stop offset="100%" stop-color="#835E1F"/>
                             </linearGradient>
 
-                            <!-- Dropper Pipette Top Gradient -->
                             <linearGradient id="dropper-top" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stop-color="#111"/>
                                 <stop offset="50%" stop-color="#333"/>
@@ -109,32 +105,22 @@
                             </linearGradient>
                         </defs>
 
-                        <!-- Rubber Dropper Top -->
                         <path d="M 85,25 C 85,10 115,10 115,25 Z" fill="url(#dropper-top)"/>
                         <rect x="83" y="23" width="34" height="6" rx="2" fill="#222"/>
 
-                        <!-- Metallic Gold Cap Ring -->
                         <rect x="76" y="29" width="48" height="38" rx="4" fill="url(#gold-cap)"/>
                         <line x1="82" y1="29" x2="82" y2="67" stroke="#725117" stroke-width="1"/>
                         <line x1="118" y1="29" x2="118" y2="67" stroke="#725117" stroke-width="1"/>
 
-                        <!-- Neck Ring -->
                         <rect x="72" y="67" width="56" height="8" rx="2" fill="url(#gold-cap)"/>
 
-                        <!-- Main Glass Bottle Body -->
                         <path d="M 60,82 C 60,75 140,75 140,82 L 148,110 Q 152,120 152,135 L 152,310 Q 152,330 132,330 L 68,330 Q 48,330 48,310 L 48,135 Q 48,120 52,110 Z" fill="url(#oil-liquid)"/>
-
-                        <!-- Glass Thickness Base -->
                         <path d="M 52,305 Q 48,330 68,330 L 132,330 Q 152,330 148,305 Q 100,315 52,305 Z" fill="#091710" opacity="0.6"/>
-
-                        <!-- Glass Reflection Glare Overlay -->
                         <path d="M 60,82 C 60,75 140,75 140,82 L 148,110 Q 152,120 152,135 L 152,310 Q 152,330 132,330 L 68,330 Q 48,330 48,310 L 48,135 Q 48,120 52,110 Z" fill="url(#glass-glare)"/>
 
-                        <!-- Premium Minimalist Product Label -->
                         <rect x="58" y="135" width="84" height="150" rx="6" fill="#FDFBF7" stroke="#E5D9C3" stroke-width="1"/>
                         <rect x="62" y="139" width="76" height="142" rx="4" fill="none" stroke="#C9A24B" stroke-width="0.8" stroke-dasharray="100,2"/>
 
-                        <!-- Label Typography -->
                         <text x="100" y="172" text-anchor="middle" font-family="'Fraunces', serif" font-size="14" font-weight="700" fill="#1B3B2B" letter-spacing="1">HERBAL</text>
                         <text x="100" y="190" text-anchor="middle" font-family="'Fraunces', serif" font-size="14" font-weight="700" fill="#1B3B2B" letter-spacing="1">AURUM</text>
                         <line x1="75" y1="202" x2="125" y2="202" stroke="#C9A24B" stroke-width="1"/>
@@ -186,12 +172,49 @@
       </svg>
     </div>
 
-    <!-- 5. PRODUCTS SECTION -->
-    <section id="products" class="products-section">
+    <!-- 5. PRODUCTS / PACKS SECTION (Single, Duo, Combo Options) -->
+    <section id="products" class="products-section" style="padding: 60px 20px;">
         <div class="container">
-            <h2 class="section-title reveal">Select Your Pack</h2>
-            <div id="dynamic-products" class="products-grid">
-                <!-- Dynamic products rendering -->
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 10px;">Select Your Pack</h2>
+            <p class="reveal" style="text-align: center; color: #666; margin-bottom: 40px;">Choose the ideal treatment bundle for your hair care journey.</p>
+            
+            <!-- Default Static Pack Cards (Jab tak CMS JSON Load na ho) -->
+            <div id="dynamic-products" class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                
+                <!-- Pack 1: Single Bottle -->
+                <div class="product-card reveal" style="background: #fff; border: 1px solid #e5dec9; border-radius: 16px; padding: 20px; text-align: center; position: relative;">
+                    <div style="background: #f4efe4; border-radius: 12px; padding: 20px; margin-bottom: 15px;">
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #B0842A; letter-spacing: 1px; text-transform: uppercase;">Starter Pack</span>
+                        <h3 style="font-family: 'Fraunces', serif; font-size: 1.4rem; color: #1B3B2B; margin-top: 5px;">1 Bottle (100ml)</h3>
+                    </div>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Ideal for 30-day trial and daily hair maintenance.</p>
+                    <p class="price" style="font-size: 1.4rem; font-weight: 700; color: #1B3B2B; margin-bottom: 20px;">Rs. 2,490</p>
+                    <button class="btn-secondary" style="width: 100%;">Order 1 Bottle</button>
+                </div>
+
+                <!-- Pack 2: Duo Pack (Most Popular) -->
+                <div class="product-card reveal" style="background: #fff; border: 2px solid #C9A24B; border-radius: 16px; padding: 20px; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(201,162,75,0.15);">
+                    <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #C9A24B; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;">Most Popular</div>
+                    <div style="background: #1B3B2B; color: #fff; border-radius: 12px; padding: 20px; margin-bottom: 15px;">
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #EED596; letter-spacing: 1px; text-transform: uppercase;">60-Day Treatment</span>
+                        <h3 style="font-family: 'Fraunces', serif; font-size: 1.4rem; color: #fff; margin-top: 5px;">2 Bottles Pack</h3>
+                    </div>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Recommended for visible new hair growth & root strength.</p>
+                    <p class="price" style="font-size: 1.4rem; font-weight: 700; color: #1B3B2B; margin-bottom: 20px;">Rs. 4,290 <span style="font-size: 0.9rem; color: #888; text-decoration: line-through;">Rs. 4,980</span></p>
+                    <button class="btn-primary" style="width: 100%; background: #1B3B2B; color: #fff;">Order 2 Bottles (Save 15%)</button>
+                </div>
+
+                <!-- Pack 3: Triple Super Saver Combo -->
+                <div class="product-card reveal" style="background: #fff; border: 1px solid #e5dec9; border-radius: 16px; padding: 20px; text-align: center; position: relative;">
+                    <div style="background: #f4efe4; border-radius: 12px; padding: 20px; margin-bottom: 15px;">
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #B0842A; letter-spacing: 1px; text-transform: uppercase;">Family & Value Combo</span>
+                        <h3 style="font-family: 'Fraunces', serif; font-size: 1.4rem; color: #1B3B2B; margin-top: 5px;">3 Bottles Super Saver</h3>
+                    </div>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Complete 90-day full hair transformation regimen.</p>
+                    <p class="price" style="font-size: 1.4rem; font-weight: 700; color: #1B3B2B; margin-bottom: 20px;">Rs. 5,890 <span style="font-size: 0.9rem; color: #888; text-decoration: line-through;">Rs. 7,470</span></p>
+                    <button class="btn-secondary" style="width: 100%;">Order 3 Bottles (Save 20%)</button>
+                </div>
+
             </div>
         </div>
     </section>
@@ -263,30 +286,32 @@
                 }
             });
 
-        // Dynamic Products Loading with Video Hover
+        // Dynamic Products Loading with Video Hover (Agar CMS mein custom dynamic products shamil hon)
         fetch('/products/index.json')
             .then(res => res.json())
             .then(products => {
-                const container = document.getElementById('dynamic-products');
                 if(!products || products.length === 0) return;
+                const container = document.getElementById('dynamic-products');
+                container.innerHTML = ''; // Overwrite with dynamic CMS products if available
                 
                 products.forEach(prod => {
                     const card = document.createElement('div');
                     card.className = 'product-card reveal';
+                    card.style.cssText = 'background: #fff; border: 1px solid #e5dec9; border-radius: 16px; padding: 20px; text-align: center; position: relative;';
                     
                     const videoTag = prod.hover_video ? 
                         `<video class="product-hover-video" muted loop style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 0.4s ease;"><source src="${prod.hover_video}" type="video/mp4"></video>` 
                         : '';
 
                     card.innerHTML = `
-                        <div class="product-img-box" style="background-image: url('${prod.image}'); background-size: cover; background-position: center; height: 280px; position: relative; overflow: hidden; border-radius: 12px;">
+                        <div class="product-img-box" style="background-image: url('${prod.image}'); background-size: cover; background-position: center; height: 220px; position: relative; overflow: hidden; border-radius: 12px;">
                             ${videoTag}
                         </div>
                         <div class="product-info" style="padding: 15px 0; text-align: center;">
                             <h3 style="font-family: 'Fraunces', serif; font-size: 1.25rem; color: #1B3B2B;">${prod.title}</h3>
                             <p class="size-tag" style="color: #B0842A; font-weight: 600; font-size: 0.85rem; margin: 4px 0;">100ML BOTTLE</p>
-                            <p class="price" style="font-size: 1.1rem; font-weight: 700; color: #1B3B2B;">Rs. ${prod.price}</p>
-                            <button class="btn-secondary" style="margin-top: 10px; width: 100%;">Add to Cart</button>
+                            <p class="price" style="font-size: 1.25rem; font-weight: 700; color: #1B3B2B;">Rs. ${prod.price}</p>
+                            <button class="btn-secondary" style="margin-top: 10px; width: 100%;">Order Now</button>
                         </div>
                     `;
 
@@ -308,6 +333,9 @@
                     container.appendChild(card);
                 });
 
+                initAnimations();
+            })
+            .catch(e => {
                 initAnimations();
             });
     </script>
