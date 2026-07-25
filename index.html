@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herbal Aurum | Organic Hair Growth & Scalp Care</title>
-
+    <title>Herbal Aurum | Premium Organic Hair Care</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- CSS Styling -->
+    
+    <!-- Inline Styling for 100% Guaranteed Load -->
     <style>
         :root {
             --primary-color: #1B3B2B;
@@ -19,11 +18,7 @@
             --text-dark: #2C332E;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Manrope', sans-serif;
@@ -33,51 +28,56 @@
             overflow-x: hidden;
         }
 
-        /* Navigation Bar */
+        /* 1. Navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            background: #ffffff;
+            padding: 20px 8%;
+            background: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid #E5D9C3;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .logo {
             font-family: 'Fraunces', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--primary-color);
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 25px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
 
-        /* Hero Section */
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        /* 2. Hero Section */
         .hero {
-            padding: 80px 20px 60px;
+            padding: 90px 20px 70px;
             text-align: center;
-            background: linear-gradient(180deg, #FDFBF7 0%, #F4EFE4 100%);
+            background: radial-gradient(circle, #FDFBF7 0%, #F4EFE4 100%);
         }
 
         .hero-badge {
             display: inline-block;
             background: #E8F0EB;
             color: var(--primary-color);
-            padding: 6px 18px;
+            padding: 6px 20px;
             border-radius: 30px;
             font-weight: 700;
             font-size: 0.85rem;
@@ -89,46 +89,70 @@
 
         .hero-title {
             font-family: 'Fraunces', serif;
-            font-size: 2.8rem;
+            font-size: 3rem;
             color: var(--primary-color);
-            line-height: 1.2;
+            line-height: 1.25;
             margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-text {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: #4A5D52;
             max-width: 650px;
-            margin: 0 auto 30px;
+            margin: 0 auto 35px;
         }
 
         .btn-primary {
             display: inline-block;
             background: var(--primary-color);
             color: #FFFFFF;
-            padding: 14px 32px;
+            padding: 15px 36px;
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(27, 59, 43, 0.2);
         }
 
         .btn-primary:hover {
             background: #11281C;
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
             display: inline-block;
             border: 1px solid var(--primary-color);
             color: var(--primary-color);
-            padding: 14px 28px;
+            padding: 15px 32px;
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             background: transparent;
+            transition: all 0.3s ease;
         }
 
-        /* Grid Layouts */
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: #FFFFFF;
+        }
+
+        /* Vine Divider */
+        .vine-divider {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            margin: 20px 0;
+        }
+
+        .vine-divider svg {
+            width: 100%;
+            height: 40px;
+        }
+
+        /* 3. Layout Grid */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -137,12 +161,13 @@
 
         .section-title {
             font-family: 'Fraunces', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary-color);
             text-align: center;
             margin-bottom: 10px;
         }
 
+        /* 4. Products Cards */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -157,6 +182,12 @@
             padding: 25px;
             text-align: center;
             position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
         }
 
         .featured-card {
@@ -176,45 +207,59 @@
             padding: 4px 16px;
             border-radius: 20px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.1rem; }
+            .hero-title { font-size: 2.2rem; }
             .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. NAVIGATION -->
+    <!-- 1. NAVIGATION BAR -->
     <nav class="navbar">
         <div class="logo">Herbal Aurum</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#products">Hair Care Packs</a></li>
+            <li><a href="#timeline">Journey</a></li>
+            <li><a href="#products">Packs & Offers</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
     </nav>
 
     <!-- 2. HERO SECTION -->
     <section id="home" class="hero">
-        <div class="hero-badge">🌿 100% Botanical Hair Oil & Scalp Care</div>
-        <h1 class="hero-title">Natural Care for Stronger, Thicker Hair</h1>
-        <p class="hero-text">Pure plant-based herbal hair oil formulated to reduce hair fall, nourish roots, and promote lush natural growth.</p>
+        <div class="hero-badge animate-hero">🌿 100% Organic Botanical Formula</div>
+        <h1 class="hero-title animate-hero">Natural Care for Stronger, Thicker Hair</h1>
+        <p class="hero-text animate-hero">Minimalist, plant-based herbal hair oil crafted to restore hair strength, shine, and natural growth.</p>
         
-        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
-            <a href="#products" class="btn-primary">Explore Hair Packs</a>
-            <a href="#about" class="btn-secondary">Learn More</a>
+        <div class="animate-hero" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
+            <a href="#products" class="btn-primary">Shop Our Packs</a>
+            <a href="#about" class="btn-secondary">Explore Philosophy</a>
         </div>
     </section>
 
-    <!-- 3. ABOUT SECTION (ORIGINAL PREMIUM GLASS DROPPER BOTTLE VISUAL) -->
+    <!-- VINE DIVIDER 1 -->
+    <div class="vine-divider reveal">
+      <svg viewBox="0 0 1180 70">
+        <path stroke="#2E5A44" stroke-width="2" fill="none" d="M0 35 C 200 5, 300 65, 500 35 S 800 5, 1180 35"/>
+        <circle fill="#C9A24B" cx="180" cy="18" r="6"/>
+        <circle fill="#C9A24B" cx="470" cy="48" r="6"/>
+        <circle fill="#C9A24B" cx="760" cy="16" r="6"/>
+      </svg>
+    </div>
+
+    <!-- 3. ABOUT US SECTION (ORIGINAL PREMIUM 3D DROPPER GLASS BOTTLE VISUAL) -->
     <section id="about" style="padding: 60px 0;">
-        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center;">
             
-            <div style="display: flex; justify-content: center; align-items: center;">
-                <div style="position: relative; width: 100%; max-width: 250px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.18));">
+            <!-- PREMIUM 3D DROPPER GLASS BOTTLE -->
+            <div class="reveal" style="display: flex; justify-content: center; align-items: center; padding: 10px;">
+                <div style="position: relative; width: 100%; max-width: 270px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.18));">
                     <svg viewBox="0 0 200 360" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
                         <defs>
                             <linearGradient id="oil-liquid" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -271,50 +316,141 @@
                 </div>
             </div>
 
-            <div>
-                <h2 class="section-title" style="text-align: left;">Targeted Scalp & Hair Root Therapy</h2>
-                <p style="color: #555; margin-top: 15px;">StrandFlora Herbal Hair Oil blends rare botanical extracts designed to nourish hair follicles, reduce daily shedding, and restore natural scalp shine.</p>
+            <div class="reveal">
+                <h2 class="section-title" style="text-align: left;">Our Organic Philosophy</h2>
+                <p style="color: #555; margin-top: 15px; font-size: 1.05rem; line-height: 1.7;">StrandFlora is specially crafted from rare natural herbs and premium organic botanicals that deliver visible hair restoration, control dandruff, and provide deep root nourishment.</p>
             </div>
         </div>
     </section>
 
-    <!-- 4. PRODUCTS / PACKS SECTION -->
+    <!-- 4. TIMELINE SECTION -->
+    <section id="timeline" style="padding: 60px 0; background: #FDFBF7;">
+        <div class="container">
+            <h2 class="section-title reveal">Your Hair Growth Journey</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 35px; text-align: center;">
+                <div class="reveal" style="background: #fff; padding: 25px; border-radius: 16px; border: 1px solid #e0d8c3;">
+                    <span style="font-family: 'Fraunces', serif; font-size: 2rem; color: #B0842A; display: block;">Week 1</span>
+                    <p style="font-size: 0.9rem; margin-top: 10px; color: #555;">Deep scalp nourishment. Calms dryness & activates roots.</p>
+                </div>
+                <div class="reveal" style="background: #fff; padding: 25px; border-radius: 16px; border: 1px solid #e0d8c3;">
+                    <span style="font-family: 'Fraunces', serif; font-size: 2rem; color: #B0842A; display: block;">Week 2</span>
+                    <p style="font-size: 0.9rem; margin-top: 10px; color: #555;">Visible reduction in daily hair fall and breakage.</p>
+                </div>
+                <div class="reveal" style="background: #fff; padding: 25px; border-radius: 16px; border: 1px solid #e0d8c3;">
+                    <span style="font-family: 'Fraunces', serif; font-size: 2rem; color: #B0842A; display: block;">Week 4</span>
+                    <p style="font-size: 0.9rem; margin-top: 10px; color: #555;">Activation of dormant follicles; baby growth sprouts appear.</p>
+                </div>
+                <div class="reveal" style="background: #fff; padding: 25px; border-radius: 16px; border: 1px solid #e0d8c3;">
+                    <span style="font-family: 'Fraunces', serif; font-size: 2rem; color: #B0842A; display: block;">Week 8</span>
+                    <p style="font-size: 0.9rem; margin-top: 10px; color: #555;">Thicker, denser, and naturally lustrous hair growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VINE DIVIDER 2 -->
+    <div class="vine-divider reveal">
+      <svg viewBox="0 0 1180 70">
+        <path stroke="#2E5A44" stroke-width="2" fill="none" d="M0 35 C 200 65, 300 5, 500 35 S 800 65, 1180 35"/>
+        <circle fill="#C9A24B" cx="200" cy="50" r="6"/>
+        <circle fill="#C9A24B" cx="600" cy="20" r="6"/>
+      </svg>
+    </div>
+
+    <!-- 5. PRODUCTS / PACKS SECTION -->
     <section id="products" style="padding: 60px 0; background: #F4EFE4;">
         <div class="container">
-            <h2 class="section-title">Select Your Treatment Pack</h2>
-            <p style="text-align: center; color: #666;">Choose a package tailored for your hair goals.</p>
+            <h2 class="section-title reveal">Select Your Pack</h2>
+            <p class="reveal" style="text-align: center; color: #666;">Choose the ideal treatment bundle for your hair care journey.</p>
 
             <div class="products-grid">
-                <!-- Single Pack -->
-                <div class="product-card">
-                    <h3 style="font-family: 'Fraunces', serif; color: #1B3B2B;">1 Bottle (100ml)</h3>
-                    <p style="color: #666; font-size: 0.9rem; margin: 15px 0;">30-Day Starter Care</p>
+                <!-- Pack 1 -->
+                <div class="product-card reveal">
+                    <div style="background: #f4efe4; border-radius: 12px; padding: 18px; margin-bottom: 15px;">
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #B0842A; letter-spacing: 1px; text-transform: uppercase;">Starter Pack</span>
+                        <h3 style="font-family: 'Fraunces', serif; font-size: 1.4rem; color: #1B3B2B; margin-top: 5px;">1 Bottle (100ml)</h3>
+                    </div>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Ideal for 30-day trial and daily scalp maintenance.</p>
                     <p style="font-size: 1.4rem; font-weight: 700; color: #1B3B2B; margin-bottom: 20px;">Rs. 2,490</p>
                     <a href="#" class="btn-secondary" style="width: 100%;">Order 1 Bottle</a>
                 </div>
 
-                <!-- Duo Pack -->
-                <div class="product-card featured-card">
+                <!-- Pack 2 -->
+                <div class="product-card featured-card reveal">
                     <div class="badge-pop">Most Popular</div>
-                    <h3 style="font-family: 'Fraunces', serif; color: #1B3B2B;">2 Bottles Pack</h3>
-                    <p style="color: #666; font-size: 0.9rem; margin: 15px 0;">60-Day Regimen for Regrowth</p>
-                    <p style="font-size: 1.4rem; font-weight: 700; color: #1B3B2B; margin-bottom: 20px;">Rs. 4,290</p>
-                    <a href="#" class="btn-primary" style="width: 100%;">Order 2 Bottles</a>
+                    <div style="background: #1B3B2B; color: #fff; border-radius: 12px; padding: 18px; margin-bottom: 15px;">
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #EED596; letter-spacing: 1px; text-transform: uppercase;">60-Day Regimen</span>
+                        <h3 style="font-family: 'Fraunces', serif; font-size: 1.4rem; color: #fff; margin-top: 5px;">2 Bottles Pack</h3>
+                    </div>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Recommended for visible new hair growth & root strength.</p>
+                    <p style="font-size: 1.4rem; font-weight: 700; color: #1B3B2B; margin-bottom: 20px;">Rs. 4,290 <span style="font-size: 0.9rem; color: #888; text-decoration: line-through;">Rs. 4,980</span></p>
+                    <a href="#" class="btn-primary" style="width: 100%;">Order 2 Bottles (Save 15%)</a>
                 </div>
 
-                <!-- Combo Pack -->
-                <div class="product-card">
-                    <h3 style="font-family: 'Fraunces', serif; color: #1B3B2B;">3 Bottles Combo</h3>
-                    <p style="color: #666; font-size: 0.9rem; margin: 15px 0;">90-Day Full Transformation</p>
-                    <p style="font-size: 1.4rem; font-weight: 700; color: #1B3B2B; margin-bottom: 20px;">Rs. 5,890</p>
-                    <a href="#" class="btn-secondary" style="width: 100%;">Order 3 Bottles</a>
+                <!-- Pack 3 -->
+                <div class="product-card reveal">
+                    <div style="background: #f4efe4; border-radius: 12px; padding: 18px; margin-bottom: 15px;">
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #B0842A; letter-spacing: 1px; text-transform: uppercase;">Super Saver Combo</span>
+                        <h3 style="font-family: 'Fraunces', serif; font-size: 1.4rem; color: #1B3B2B; margin-top: 5px;">3 Bottles Combo</h3>
+                    </div>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Complete 90-day full hair transformation regimen.</p>
+                    <p style="font-size: 1.4rem; font-weight: 700; color: #1B3B2B; margin-bottom: 20px;">Rs. 5,890 <span style="font-size: 0.9rem; color: #888; text-decoration: line-through;">Rs. 7,470</span></p>
+                    <a href="#" class="btn-secondary" style="width: 100%;">Order 3 Bottles (Save 20%)</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 6. FAQ SECTION -->
+    <section id="faq" style="padding: 60px 0;">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title reveal">Frequently Asked Questions</h2>
+            <div class="reveal" style="margin-top: 30px;">
+                <div style="border-bottom: 1px solid #ddd; padding: 15px 0;">
+                    <h3 style="font-size: 1.1rem; color: #1B3B2B;">How soon will I see results?</h3>
+                    <p style="margin-top: 8px; color: #555; font-size: 0.95rem;">Most users notice significantly less hair fall in 2 weeks, with visible new growth around weeks 4-8 with consistent use.</p>
+                </div>
+                <div style="border-bottom: 1px solid #ddd; padding: 15px 0;">
+                    <h3 style="font-size: 1.1rem; color: #1B3B2B;">Is Cash on Delivery available?</h3>
+                    <p style="margin-top: 8px; color: #555; font-size: 0.95rem;">Yes, we offer nationwide Cash on Delivery with fast 2-4 day shipping.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GSAP Smooth Animations Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
     <script>
-        console.log("Herbal Aurum Website Loaded Successfully!");
+        // Safe Animation Trigger
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                
+                gsap.from(".animate-hero", {
+                    opacity: 0,
+                    y: 30,
+                    duration: 1.2,
+                    stagger: 0.2,
+                    ease: "power3.out"
+                });
+
+                gsap.utils.toArray('.reveal').forEach(element => {
+                    gsap.from(element, {
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 88%",
+                            toggleActions: "play none none reverse"
+                        },
+                        opacity: 0,
+                        y: 35,
+                        duration: 1,
+                        ease: "power2.out"
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>
