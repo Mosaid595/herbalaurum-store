@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Main Style Sheet -->
     <link rel="stylesheet" href="style.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -58,8 +58,9 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
+            <li><a href="#timeline">Journey</a></li>
             <li><a href="#products">Products</a></li>
-            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
         </ul>
     </nav>
 
@@ -71,6 +72,16 @@
             <a href="#products" class="btn-primary animate-hero">Shop Our Packs</a>
         </div>
     </section>
+
+    <!-- VINE DIVIDER 1 -->
+    <div class="vine-divider reveal">
+      <svg viewBox="0 0 1180 70">
+        <path class="vine-path" stroke="#2E5A44" stroke-width="2" fill="none" d="M0 35 C 200 5, 300 65, 500 35 S 800 5, 1180 35"/>
+        <circle fill="#C9A24B" cx="180" cy="18" r="6"/>
+        <circle fill="#C9A24B" cx="470" cy="48" r="6"/>
+        <circle fill="#C9A24B" cx="760" cy="16" r="6"/>
+      </svg>
+    </div>
 
     <!-- 3. ABOUT US SECTION -->
     <section id="about" class="about-section">
@@ -85,7 +96,42 @@
         </div>
     </section>
 
-    <!-- 4. PRODUCTS SECTION -->
+    <!-- 4. TIMELINE SECTION (Naya Feature) -->
+    <section id="timeline" class="timeline-section" style="padding: 60px 20px; text-align: center;">
+        <div class="container">
+            <h2 class="section-title reveal">What to Expect Week by Week</h2>
+            <p class="reveal" style="margin-bottom: 40px; color: #555;">Real results based on natural hair growth cycles.</p>
+            <div class="timeline-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div class="tl-card reveal" style="background: #fdfbf7; padding: 20px; border-radius: 12px; border: 1px solid #eee;">
+                    <span style="font-family: 'Fraunces', serif; font-size: 2rem; color: #C9A24B; display: block;">Week 1</span>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Scalp nourishment begins. Itching and flaking calm down, roots feel stronger.</p>
+                </div>
+                <div class="tl-card reveal" style="background: #fdfbf7; padding: 20px; border-radius: 12px; border: 1px solid #eee;">
+                    <span style="font-family: 'Fraunces', serif; font-size: 2rem; color: #C9A24B; display: block;">Week 2</span>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Hair fall visibly reduces — noticeably less hair on your brush.</p>
+                </div>
+                <div class="tl-card reveal" style="background: #fdfbf7; padding: 20px; border-radius: 12px; border: 1px solid #eee;">
+                    <span style="font-family: 'Fraunces', serif; font-size: 2rem; color: #C9A24B; display: block;">Week 4</span>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Fine new baby hairs start appearing along your hairline.</p>
+                </div>
+                <div class="tl-card reveal" style="background: #fdfbf7; padding: 20px; border-radius: 12px; border: 1px solid #eee;">
+                    <span style="font-family: 'Fraunces', serif; font-size: 2rem; color: #C9A24B; display: block;">Week 8</span>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Hair looks visibly thicker, shinier, and stronger from root to tip.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VINE DIVIDER 2 -->
+    <div class="vine-divider reveal">
+      <svg viewBox="0 0 1180 70">
+        <path class="vine-path" stroke="#2E5A44" stroke-width="2" fill="none" d="M0 35 C 200 65, 300 5, 500 35 S 800 65, 1180 35"/>
+        <circle fill="#C9A24B" cx="200" cy="50" r="6"/>
+        <circle fill="#C9A24B" cx="600" cy="20" r="6"/>
+      </svg>
+    </div>
+
+    <!-- 5. PRODUCTS SECTION -->
     <section id="products" class="products-section">
         <div class="container">
             <h2 class="section-title">Select Your Pack</h2>
@@ -95,20 +141,34 @@
         </div>
     </section>
 
-    <!-- 5. REVIEWS SECTION -->
-    <section id="reviews" class="reviews-section">
-        <div class="container">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Mera hair fall 2 weeks mein bilkul ruk gaya. Highly recommended!"</p>
-                    <h4>- Ayesha K.</h4>
+    <!-- 6. FAQ SECTION (Naya Feature) -->
+    <section id="faq" class="faq-section" style="padding: 60px 20px;">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <h2 class="section-title reveal" style="text-align: center;">Frequently Asked Questions</h2>
+            <div class="faq-list reveal" style="margin-top: 30px;">
+                <div class="faq-item" style="border-bottom: 1px solid #ddd; padding: 15px 0;">
+                    <button class="faq-q" style="width: 100%; text-align: left; background: none; border: none; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between;">
+                        How soon will I see results? <span class="plus">+</span>
+                    </button>
+                    <div class="faq-a" style="display: none; padding-top: 10px; color: #555; font-size: 0.95rem;">
+                        <p>Most customers notice reduced hair fall within 2 weeks, with visible new growth from around week 4–8 with consistent use.</p>
+                    </div>
                 </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"The shine after using the 100ml pack is amazing. Very lightweight oil."</p>
-                    <h4>- Sana M.</h4>
+                <div class="faq-item" style="border-bottom: 1px solid #ddd; padding: 15px 0;">
+                    <button class="faq-q" style="width: 100%; text-align: left; background: none; border: none; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between;">
+                        Is Cash on Delivery available across Pakistan? <span class="plus">+</span>
+                    </button>
+                    <div class="faq-a" style="display: none; padding-top: 10px; color: #555; font-size: 0.95rem;">
+                        <p>Yes — we offer Cash on Delivery nationwide, including all major cities and towns.</p>
+                    </div>
+                </div>
+                <div class="faq-item" style="border-bottom: 1px solid #ddd; padding: 15px 0;">
+                    <button class="faq-q" style="width: 100%; text-align: left; background: none; border: none; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between;">
+                        Is it safe for chemically treated hair? <span class="plus">+</span>
+                    </button>
+                    <div class="faq-a" style="display: none; padding-top: 10px; color: #555; font-size: 0.95rem;">
+                        <p>Yes, StrandFlora is 100% natural with no harsh chemicals, making it safe for color-treated and keratin-treated hair.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,7 +179,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     
     <script>
-        // Homepage Content Loading
+        // FAQ Accordion Toggle Script
+        document.querySelectorAll('.faq-q').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                const plus = btn.querySelector('.plus');
+                const isOpen = answer.style.display === 'block';
+                
+                document.querySelectorAll('.faq-a').forEach(a => a.style.display = 'none');
+                document.querySelectorAll('.plus').forEach(p => p.innerText = '+');
+                
+                if(!isOpen) {
+                    answer.style.display = 'block';
+                    plus.innerText = '−';
+                }
+            });
+        });
+
+        // Content Data Fetching
         fetch('/data/homepage.json')
             .then(res => res.json())
             .then(data => {
@@ -139,9 +216,9 @@
                         aboutBox.innerText = '';
                     }
                 }
-            }).catch(err => console.log("Content data process nahi hua"));
+            });
 
-        // Products with Hover Video functionality loading
+        // Dynamic Products Loading
         fetch('/products/index.json')
             .then(res => res.json())
             .then(products => {
@@ -152,7 +229,6 @@
                     const card = document.createElement('div');
                     card.className = 'product-card';
                     
-                    // Hover video check
                     const videoTag = prod.hover_video ? 
                         `<video class="product-hover-video" muted loop style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 0.3s ease;"><source src="${prod.hover_video}" type="video/mp4"></video>` 
                         : '';
@@ -170,14 +246,13 @@
                         </div>
                     `;
 
-                    // Video Play on Hover Events
                     if(prod.hover_video) {
                         const imgBox = card.querySelector('.product-img-box');
                         const videoElement = card.querySelector('.product-hover-video');
                         
                         imgBox.addEventListener('mouseenter', () => {
                             videoElement.style.opacity = '1';
-                            videoElement.play().catch(e => console.log("Video play pending"));
+                            videoElement.play().catch(e => console.log("Video pending"));
                         });
                         
                         imgBox.addEventListener('mouseleave', () => {
@@ -190,7 +265,7 @@
                     container.appendChild(card);
                 });
 
-                // Products Scroll Animation (Upar-Neeche donon taraf toggleActions ke sath)
+                // GSAP Product Animations
                 gsap.from(".product-card", {
                     scrollTrigger: { 
                         trigger: ".products-section", 
@@ -200,8 +275,6 @@
                     },
                     opacity: 0,
                     y: window.siteSettings.yMove,
-                    x: window.siteSettings.xMove,
-                    scale: window.siteSettings.scaleMove,
                     duration: window.siteSettings.duration,
                     stagger: 0.2,
                     ease: "power2.out"
@@ -213,45 +286,29 @@
         function initAnimations() {
             gsap.registerPlugin(ScrollTrigger);
             
-            // 1. Hero Animation (Page Load par)
+            // Hero Animation
             gsap.from(".animate-hero", {
                 opacity: 0,
                 y: window.siteSettings.yMove,
-                x: window.siteSettings.xMove,
-                scale: window.siteSettings.scaleMove,
                 duration: window.siteSettings.duration,
                 stagger: 0.3,
                 ease: "power3.out"
             });
 
-            // 2. About Section Left Side (Upar-Neeche scroll toggle)
-            gsap.from(".reveal-left", {
-                scrollTrigger: { 
-                    trigger: ".about-section", 
-                    start: "top 85%",
-                    end: "bottom 15%",
-                    toggleActions: "play reverse play reverse" 
-                },
-                opacity: 0,
-                x: window.siteSettings.xMove ? window.siteSettings.xMove * -1 : -60,
-                y: window.siteSettings.yMove,
-                duration: window.siteSettings.duration,
-                ease: "power2.out"
-            });
-
-            // 3. About Section Right Side (Upar-Neeche scroll toggle)
-            gsap.from(".reveal-right", {
-                scrollTrigger: { 
-                    trigger: ".about-section", 
-                    start: "top 85%",
-                    end: "bottom 15%",
-                    toggleActions: "play reverse play reverse" 
-                },
-                opacity: 0,
-                x: window.siteSettings.xMove ? window.siteSettings.xMove : 60,
-                y: window.siteSettings.yMove,
-                duration: window.siteSettings.duration,
-                ease: "power2.out"
+            // Generic Scroll Reveal for Sections
+            gsap.utils.toArray('.reveal').forEach(element => {
+                gsap.from(element, {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        end: "bottom 15%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    opacity: 0,
+                    y: 30,
+                    duration: 1.2,
+                    ease: "power2.out"
+                });
             });
         }
     </script>
